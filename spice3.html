@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHHADVA Garam Masala - Premium Quality</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .product-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .price {
+            color: #e67e22;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .btn-custom {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-size: 16px;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #e65c00;
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(255, 102, 0, 0.3);
+        }
+        .btn-outline-secondary {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: 1px solid #ff6600;
+            color: #ff6600;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #ff6600;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .product-highlights {
+            margin-top: 30px;
+        }
+        .product-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+        .product-highlights li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 16px;
+        }
+        .product-highlights li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .comparison-table {
+            margin-top: 40px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .comparison-table th {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+        .comparison-table tr:hover {
+            background-color: #e2e2e2;
+        }
+        .badge {
+            background-color: #28a745;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        .back-to-home {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .back-to-home a {
+            text-decoration: none;
+            color: #ff6600;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .back-to-home a:hover {
+            color: #e65c00;
+            text-decoration: underline;
+        }
+        .product-tag {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="product-container row align-items-center">
+            <div class="col-md-12 product-image text-center">
+                <img src="Garam-Masala.jpg" alt="CHHADVA Garam Masala" class="img-fluid">
+            </div>
+            <div class="col-md-12">
+                <div class="product-tag">Best Seller</div>
+                <h2>CHHADVA Garam Masala</h2>
+                <p class="price">₹210.00/250g <span style="text-decoration: line-through; color: #777;">₹210.00.250g</span> <span class="badge"></span></p>                <p><strong>#Bachate₹aho</strong> | Vegetarian Product ✅</p>
+                
+                <h5>Available Sizes:</h5>
+                <div>
+                    <button class="btn btn-outline-secondary">1L - ₹142</button>
+                    <button class="btn btn-outline-secondary">5L - ₹745</button>
+                    <button class="btn btn-outline-secondary">15L Tin - ₹2155</button>
+                </div>
+                
+                <div class="product-highlights">
+                    <h4>Product Highlights:</h4>
+                    <ul>
+                        <li>🔹 A perfect blend of handpicked spices for rich aroma and bold flavor</li> <li>🔹 Enhances the taste of curries, biryanis, and gravies</li> <li>🔹 Packed with antioxidants to support immunity and overall health</li> <li><b>🔹 More freshness, better purity, and a well-balanced spice mix</b></li> <li><b>🔹 Sourced from high-quality whole spices for maximum potency</b></li> <li>🔹 Aids digestion and helps in detoxifying the body naturally</li> <li>🔹 Provides warmth and supports better metabolism</li> <li>🔹 Essential for authentic Indian cooking, adding depth to every dish</li> <li>🧪 <b>Scientific Fact:</b> Contains **piperine and eugenol,** which **boost metabolism, aid digestion, and have anti-inflammatory benefits.**</li> 
+                    </ul>
+                </div>
+                
+                <div class="comparison-table">
+                    <h4>Why Choose CHHADVA Garam Masala?</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>CHHADVA Garam Masala</th>
+                                <th>Regular Garam Masala</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Protein Content</td>
+                                <td>12-14%</td>
+                                <td>8-10%</td>
+                            </tr>
+                            <tr>
+                                <td>Moisture Content</td>
+                                <td>6-8%</td>
+                                <td>10-12%</td>
+                            </tr>
+                            <tr>
+                                <td>Fat Content</td>
+                                <td>10-12%</td>
+                                <td>6-8%</td>
+                            </tr>
+                            <tr>
+                                <td>Carbohydrates</td>
+                                <td>40-50%</td>
+                                <td>38-45%</td>
+                            </tr>
+                            <tr>
+                                <td>Antioxidant Levels</td>
+                                <td>High</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr>
+                                <td>Calcium</td>
+                                <td>200-250 mg/100g</td>
+                                <td>150-200 mg/100g</td>
+                            </tr>
+                            <tr>
+                                <td>Iron (Fe)</td>
+                                <td>12-15 mg/100g</td>
+                                <td>8-10 mg/100g</td>
+                            </tr>
+                            <tr>
+                                <td>Magnesium (Mg)</td>
+                                <td>50-60 mg/100g</td>
+                                <td>35-45 mg/100g</td>
+                            </tr>
+                            <tr>
+                                <td>Niacin (Vitamin B3)</td>
+                                <td>4-5 mg/100g</td>
+                                <td>2-3 mg/100g</td>
+                            </tr>
+                            <tr>
+                                <td>Phosphorus</td>
+                                <td>150-180 mg/100g</td>
+                                <td>120-150 mg/100g</td>
+                            </tr>
+                            <tr>
+                                <td>Digestion Benefits</td>
+                                <td>Boosts metabolism & aids digestion</td>
+                                <td>Standard digestion aid</td>
+                            </tr>
+                            <tr>
+                                <td>Toxin-Free Processing</td>
+                                <td>Yes (No artificial drying or preservatives)</td>
+                                <td>May contain additives</td>
+                            </tr>
+                            <tr>
+                                <td>Weight Management</td>
+                                <td>Supports fat metabolism</td>
+                                <td>Moderate benefits</td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td>₹210.00/250g</td>
+                                <td>₹200-210/250g</td>
+                            </tr>
+                            <tr>
+                                <td>Customer Rating</td>
+                                <td>4.5/5</td>
+                                <td>4.1/5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                <div class="mt-4">
+                    <button class="btn btn-custom"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    <a href="index.html" class="btn btn-outline-primary"><i class="fas fa-home"></i> Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHHADVA Dink - Premium Quality</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .product-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .price {
+            color: #e67e22;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .btn-custom {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-size: 16px;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #e65c00;
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(255, 102, 0, 0.3);
+        }
+        .btn-outline-secondary {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: 1px solid #ff6600;
+            color: #ff6600;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #ff6600;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .product-highlights {
+            margin-top: 30px;
+        }
+        .product-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+        .product-highlights li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 16px;
+        }
+        .product-highlights li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .comparison-table {
+            margin-top: 40px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .comparison-table th {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+        .comparison-table tr:hover {
+            background-color: #e2e2e2;
+        }
+        .badge {
+            background-color: #28a745;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        .back-to-home {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .back-to-home a {
+            text-decoration: none;
+            color: #ff6600;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .back-to-home a:hover {
+            color: #e65c00;
+            text-decoration: underline;
+        }
+        .product-tag {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="product-container row align-items-center">
+            <div class="col-md-12 product-image text-center">
+                <img src="dink.jpg" alt="CHHADVA Dink" class="img-fluid">
+            </div>
+            <div class="col-md-12">
+                <div class="product-tag">Best Seller</div>
+                <h2>CHHADVA Dink</h2>
+                <p class="price">₹480.00/kg <span style="text-decoration: line-through; color: #777;">₹480.00/kg</span> <span class="badge"></span></p>
+                <p><strong>#Bachate₹aho</strong> | Vegetarian Product ✅</p>
+                
+                <h5>Available Sizes:</h5>
+                <div>
+                    <button class="btn btn-outline-secondary">1L - ₹142</button>
+                    <button class="btn btn-outline-secondary">5L - ₹745</button>
+                    <button class="btn btn-outline-secondary">15L Tin - ₹2155</button>
+                </div>
+                
+                <div class="product-highlights">
+                    <h4>Product Highlights:</h4>
+                    <ul>
+                        <li>🔹 Premium-quality, 100% pure edible gum with no additives</li> <li>🔹 Traditionally known for its bone-strengthening properties</li> <li>🔹 Boosts stamina and energy, making it ideal for lactating mothers</li> <li><b>🔹 More purity, better texture, and superior nutritional value</b></li> <li><b>🔹 Sourced and processed with the highest quality standards</b></li> <li>🔹 Commonly used in making dink ladoos, chikkis, and Ayurvedic tonics</li> <li>🔹 Supports joint health and helps in reducing body weakness</li> <li>🔹 A natural thickener and binding agent in various recipes</li> <li>🧪 <b>Scientific Fact:</b> Dink contains **polysaccharides and galactose**, which promote **bone health, immunity, and energy production.**</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-table">
+                    <h4>Why Choose CHHADVA Dink?</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>CHHADVA Dink</th>
+                                <th>General Product</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Moisture Content</td>
+                                <td>6-8%</td>
+                                <td>12-18%</td>
+                            </tr>
+                            <tr>
+                                <td>Drying Method</td>
+                                <td>Sun-Dried (Natural)</td>
+                                <td>Machine-Dried</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Content</td>
+                                <td>18-22%</td>
+                                <td>12-15%</td>
+                            </tr>
+                            <tr>
+                                <td>Fat Content</td>
+                                <td>6-8%</td>
+                                <td>10-12%</td>
+                            </tr>
+                            <tr>
+                                <td>Carbohydrates</td>
+                                <td>55-60%</td>
+                                <td>65-70%</td>
+                            </tr>
+                            <tr>
+                                <td>Caloric Value</td>
+                                <td>420 kcal/100g</td>
+                                <td>460 kcal/100g</td>
+                            </tr>
+                            <tr>
+                                <td>Digestibility</td>
+                                <td>Easy to Digest</td>
+                                <td>Moderate Digestion</td>
+                            </tr>
+                            <tr>
+                                <td>Antioxidants</td>
+                                <td>High</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr>
+                                <td>Toxin Levels</td>
+                                <td>Nil (Lab-Tested)</td>
+                                <td>May Contain Residual Toxins</td>
+                            </tr>
+                            <tr>
+                                <td>Weight Management</td>
+                                <td>Aids in Weight Control</td>
+                                <td>May Lead to Weight Gain</td>
+                            </tr>
+                            <tr>
+                                <td>Essential Minerals</td>
+                                <td>Zn: 5mg, Fe: 3mg, Mg: 120mg, Mn: 2mg, Ca: 200mg, P: 250mg</td>
+                                <td>Zn: 3mg, Fe: 2mg, Mg: 90mg, Mn: 1.2mg, Ca: 150mg, P: 180mg</td>
+                            </tr>
+                            <tr>
+                                <td>Fiber Content</td>
+                                <td>8-10%</td>
+                                <td>4-6%</td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td>₹480/kg</td>
+                                <td>₹400-450/kg</td>
+                            </tr>
+                            <tr>
+                                <td>Overall Value</td>
+                                <td>1kg of CHHADVA Dink = 1.25kg of General Product</td>
+                                <td>Higher Moisture = Lesser Usable Weight</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                <div class="mt-4">
+                    <button class="btn btn-custom"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    <a href="index.html" class="btn btn-outline-primary"><i class="fas fa-home"></i> Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
