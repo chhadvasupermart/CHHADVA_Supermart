@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhadva Supermart - Smart Shopping Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .category {
+            width: 120px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .category img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .category img:hover {
+            transform: scale(1.1);
+        }
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        .dialog img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .dialog button {
+            margin-top: 10px;
+            padding: 8px;
+            border: none;
+            background: red;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Chhadva Supermart - Smart Shopping Guide</h2>
+        <div class="categories">
+            <div class="category" onclick="showSubCategory('Snacks')">
+                <img src="snacks.jpg" alt="Snacks">
+                <p>Snacks</p>
+            </div>
+            <div class="category" onclick="showSubCategory('Dry Fruits')">
+                <img src="dryfruits.jpg" alt="Dry Fruits">
+                <p>Dry Fruits</p>
+            </div>
+            <div class="category" onclick="showSubCategory('Cereals')">
+                <img src="cereals.jpg" alt="Cereals">
+                <p>Cereals</p>
+            </div>
+            <div class="category" onclick="showSubCategory('Oils')">
+                <img src="oils.jpg" alt="Oils">
+                <p>Oils</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog" id="dialogBox">
+        <img id="dialogImage" src="" alt="">
+        <p id="dialogText"></p>
+        <button onclick="closeDialog()">Close</button>
+    </div>
+
+    <script>
+        function showSubCategory(category) {
+            let items = {
+                "Snacks": ["chips.jpg", "biscuits.jpg", "namkeen.jpg"],
+                "Dry Fruits": ["almonds.jpg", "cashews.jpg", "raisins.jpg"],
+                "Cereals": ["oats.jpg", "cornflakes.jpg", "muesli.jpg"],
+                "Oils": ["oliveoil.jpg", "coconutoil.jpg", "mustardoil.jpg"]
+            };
+            
+            let descriptions = {
+                "chips.jpg": "Crispy and delicious potato chips.",
+                "biscuits.jpg": "Tasty and crunchy biscuits for tea time.",
+                "namkeen.jpg": "Spicy and savory namkeen for your cravings.",
+                "almonds.jpg": "High-quality almonds packed with nutrients.",
+                "cashews.jpg": "Creamy cashews, perfect for snacking.",
+                "raisins.jpg": "Sweet and juicy raisins, great for desserts.",
+                "oats.jpg": "Healthy oats for a nutritious breakfast.",
+                "cornflakes.jpg": "Crispy cornflakes, best served with milk.",
+                "muesli.jpg": "Wholesome muesli with nuts and fruits.",
+                "oliveoil.jpg": "Pure olive oil for healthy cooking.",
+                "coconutoil.jpg": "Organic coconut oil for multiple uses.",
+                "mustardoil.jpg": "Strong mustard oil for authentic flavors."
+            };
+            
+            let itemList = items[category] || [];
+            let randomItem = itemList[Math.floor(Math.random() * itemList.length)];
+            
+            document.getElementById("dialogImage").src = randomItem;
+            document.getElementById("dialogText").innerText = descriptions[randomItem];
+            document.getElementById("dialogBox").style.display = "block";
+        }
+        
+        function closeDialog() {
+            document.getElementById("dialogBox").style.display = "none";
+        }
+    </script>
+</body>
+</html>
