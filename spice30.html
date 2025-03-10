@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHHADVA Badi Elaichi - Premium Quality</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .product-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .price {
+            color: #e67e22;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .btn-custom {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-size: 16px;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #e65c00;
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(255, 102, 0, 0.3);
+        }
+        .btn-outline-secondary {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: 1px solid #ff6600;
+            color: #ff6600;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #ff6600;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .product-highlights {
+            margin-top: 30px;
+        }
+        .product-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+        .product-highlights li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 16px;
+        }
+        .product-highlights li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .comparison-table {
+            margin-top: 40px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .comparison-table th {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+        .comparison-table tr:hover {
+            background-color: #e2e2e2;
+        }
+        .badge {
+            background-color: #28a745;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        .back-to-home {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .back-to-home a {
+            text-decoration: none;
+            color: #ff6600;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .back-to-home a:hover {
+            color: #e65c00;
+            text-decoration: underline;
+        }
+        .product-tag {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="product-container row align-items-center">
+            <div class="col-md-12 product-image text-center">
+                <img src="badi elaichi.jpg" alt="CHHADVA Badi Elaichi" class="img-fluid">
+            </div>
+            <div class="col-md-12">
+                <div class="product-tag">Best Seller</div>
+                <h2>CHHADVA Badi Elaichi</h2>
+                <p class="price">₹220.00/50g <span style="text-decoration: line-through; color: #777;">₹220.00/50g</span> <span class="badge"></span></p>
+                <p><strong>#Bachate₹aho</strong> | Vegetarian Product ✅</p>
+                
+                <h5>Available Sizes:</h5>
+                <div>
+                    <button class="btn btn-outline-secondary">1L - ₹142</button>
+                    <button class="btn btn-outline-secondary">5L - ₹745</button>
+                    <button class="btn btn-outline-secondary">15L Tin - ₹2155</button>
+                </div>
+                
+                <div class="product-highlights">
+                    <h4>Product Highlights:</h4>
+                    <ul>
+                        <li>🌱 **Distinct smoky flavor** that enhances the taste of savory dishes and desserts</li> <li>💨 **Promotes better respiratory health**, helping to clear congestion and improve airflow</li> <li>🧠 **Boosts digestion** by stimulating the production of digestive enzymes and soothing the stomach</li> <li>💖 **Supports heart health** by improving blood circulation and reducing cholesterol levels</li> <li>🌟 **Rich in antioxidants**, helping to protect cells from free radical damage and aging</li> <li>🌿 **A natural remedy for bad breath** and a great addition to herbal teas</li> <li>🍽️ **Perfect for curries, stews, rice dishes, and even beverages like chai**</li> <li>🌱 **CHHADVA Badi Elaichi provides more fragrance**, flavor, and quality compared to standard black cardamom</li> <li>🧪 <b>Scientific Fact:</b> Black cardamom has **antioxidant and antimicrobial properties**, which help detoxify the body and support the immune system.</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-table">
+                    <h4>Why Choose CHHADVA Badi Elaichi?</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>CHHADVA Badi Elaichi</th>
+                                <th>Product A</th>
+                                <th>Product B</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Origin</td>
+                                <td>Premium Himalayan Farms</td>
+                                <td>Blended Sourcing</td>
+                                <td>Unknown</td>
+                            </tr>
+                            <tr>
+                                <td>Size & Aroma</td>
+                                <td>Large Pods, Rich Smoky Flavor</td>
+                                <td>Medium-sized, Mild Aroma</td>
+                                <td>Small, Less Fragrant</td>
+                            </tr>
+                            <tr>
+                                <td>Purity</td>
+                                <td>100% Natural, No Adulterants</td>
+                                <td>Possibly Mixed</td>
+                                <td>Low-Quality Blends</td>
+                            </tr>
+                            <tr>
+                                <td>Processing</td>
+                                <td>Sun-dried & Hand-sorted</td>
+                                <td>Machine-dried</td>
+                                <td>Mass-processed</td>
+                            </tr>
+                            <tr>
+                                <td>Best Uses</td>
+                                <td>Biryani, Masala Chai, Ayurvedic Benefits</td>
+                                <td>General Cooking</td>
+                                <td>Limited Use</td>
+                            </tr>
+                            <tr>
+                                <td>Health Benefits</td>
+                                <td>Boosts Digestion, Antioxidant-Rich</td>
+                                <td>Moderate</td>
+                                <td>Minimal</td>
+                            </tr>
+                            <tr>
+                                <td>Packaging</td>
+                                <td>Airtight, Resealable for Freshness</td>
+                                <td>Basic Pack</td>
+                                <td>Non-sealed</td>
+                            </tr>
+                            <tr>
+                                <td>Price (per 50g)</td>
+                                <td>₹220.00 (Premium Quality)</td>
+                                <td>₹200-210</td>
+                                <td>₹180-200</td>
+                            </tr>
+                            <tr>
+                                <td>Customer Rating</td>
+                                <td>4.8/5 (Highly Rated for Aroma & Quality)</td>
+                                <td>4.2/5</td>
+                                <td>3.9/5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                <div class="mt-4">
+                    <button class="btn btn-custom"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    <a href="index.html" class="btn btn-outline-primary"><i class="fas fa-home"></i> Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
