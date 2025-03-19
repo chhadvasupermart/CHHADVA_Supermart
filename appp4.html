@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhadva Supermart - Smart Shopping Guide</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            text-align: center;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .header {
+            background-color: #ff9800;
+            padding: 15px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .category {
+            width: 150px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .category img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .category:hover {
+            transform: scale(1.1);
+        }
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            width: 320px;
+            text-align: center;
+            z-index: 1000;
+        }
+        .dialog img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .dialog p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .dialog button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background: #ff5722;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .dialog button:hover {
+            background: #e64a19;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f2f5;
+                text-align: center;
+            }
+            .container {
+                max-width: 800px;
+                margin: auto;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+                margin-top: 50px;
+            }
+            select, button {
+                padding: 12px;
+                margin: 10px;
+                font-size: 16px;
+                border-radius: 5px;
+                border: none;
+                background: #ff6f61;
+                color: white;
+                cursor: pointer;
+            }
+            select {
+                background: white;
+                color: black;
+                border: 2px solid #ff6f61;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            li {
+                background: #ffe5d9;
+                margin: 5px 0;
+                padding: 12px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .category-icon {
+                font-size: 24px;
+                margin-right: 10px;
+            }
+            .navbar {
+                background: #ff6f61;
+                padding: 15px;
+                color: white;
+                font-size: 20px;
+            }
+            .footer {
+                margin-top: 20px;
+                padding: 15px;
+                background: #333;
+                color: white;
+            }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Chhadva Supermart - Smart Shopping Guide</div>
+        <div class="categories">
+            <div class="category" onclick="showSubCategory('Snacks')">
+                <img src="snacks.jpg" alt="Snacks">
+                <p>Snacks</p>
+            </div>
+            <div class="category" onclick="showSubCategory('Dry Fruits')">
+                <img src="dryfruits.jpg" alt="Dry Fruits">
+                <p>Dry Fruits</p>
+            </div>
+            <div class="category" onclick="showSubCategory('Cereals')">
+                <img src="cereals.jpg" alt="Cereals">
+                <p>Cereals</p>
+            </div>
+            <div class="category" onclick="showSubCategory('Oils')">
+                <img src="oils.jpg" alt="Oils">
+                <p>Oils</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="dialog" id="dialogBox">
+        <img id="dialogImage" src="" alt="">
+        <p id="dialogText"></p>
+        <button onclick="closeDialog()">Close</button>
+    </div>
+
+    <script>
+        function showSubCategory(category) {
+            let items = {
+                "Snacks": ["chips.jpg", "biscuits.jpg", "namkeen.jpg"],
+                "Dry Fruits": ["almonds.jpg", "cashews.jpg", "raisins.jpg"],
+                "Cereals": ["oats.jpg", "cornflakes.jpg", "muesli.jpg"],
+                "Oils": ["oliveoil.jpg", "coconutoil.jpg", "mustardoil.jpg"]
+            };
+            
+            let descriptions = {
+                "chips.jpg": "Crispy and delicious potato chips.",
+                "biscuits.jpg": "Tasty and crunchy biscuits for tea time.",
+                "namkeen.jpg": "Spicy and savory namkeen for your cravings.",
+                "almonds.jpg": "High-quality almonds packed with nutrients.",
+                "cashews.jpg": "Creamy cashews, perfect for snacking.",
+                "raisins.jpg": "Sweet and juicy raisins, great for desserts.",
+                "oats.jpg": "Healthy oats for a nutritious breakfast.",
+                "cornflakes.jpg": "Crispy cornflakes, best served with milk.",
+                "muesli.jpg": "Wholesome muesli with nuts and fruits.",
+                "oliveoil.jpg": "Pure olive oil for healthy cooking.",
+                "coconutoil.jpg": "Organic coconut oil for multiple uses.",
+                "mustardoil.jpg": "Strong mustard oil for authentic flavors."
+            };
+            
+            let itemList = items[category] || [];
+            let randomItem = itemList[Math.floor(Math.random() * itemList.length)];
+            
+            document.getElementById("dialogImage").src = randomItem;
+            document.getElementById("dialogText").innerText = descriptions[randomItem];
+            document.getElementById("dialogBox").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+        
+        function closeDialog() {
+            document.getElementById("dialogBox").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+        <script>
+            function showItems(category) {
+                let items = {
+                    "Curry Items": 
+                    {
+                        "MTR": ["Chicken masala", "Fish masala", "Mutton masala"],
+                        "ASR": ["Chicken masala", "Fish masala", "Mutton masala"],
+                        "Suhana": ["Chicken masala", "Fish masala", "Mutton masala"],
+                        "Eastern": ["Chicken masala", "Fish masala", "Mutton masala"]
+                    },
+                    "Foodspreads": {
+                        "JAM": ["Mapro Jam", "Kissan Jam", "Veeba Fruit Jam", "Veeba Mixed Jam"],
+                        "Bluebird": ["COCOA", "Gelatine", "Baking powder","Bluebird Cornflour","Bluebird Veg Jelly","Bluebird Raspberry", "Citric acid", "Active dry yeast", "Instant pudding", "China grass", "Instant dry yeast", "Kulfi mix", "Whipped topping", "Drinking chocolate", "Test-mi-nov"],
+                        "Food spread": ["Nutella", "Sundrop peanut butter", "Dr. Oetker peanut butter",],
+                        "Ketchup": ["Heinz Ketchup", "Kissan Ketchup", "Maggi Ketchup", "Maggi Pichkoo", "Maggi Hot&Sweet"],
+                    },
+                    
+                    "Snacks": ["Namkeen", "Biscuits", "Chips", "Samosa", "Tea"],
+                    "Dry Fruits": ["Almonds", "Cashews", "Pistachios", "Raisins", "Walnuts", "Hazelnuts", "Dates", "Apricots", "Figs", "Prunes", "Pine Nuts", "Macadamia Nuts", "Brazil Nuts", "Pecan Nuts", "Cranberries", "Goji Berries", "Mulberries", "Tamarind"],
+                    "Cereals": ["Cornflakes", "Oats", "Muesli", "Choco Flakes", "Chocos", "Quaker Oats", "Kellogg's Cornflakes"],
+                    "Pulses": ["Lentils", "Chickpeas", "Kidney Beans", "Moong Dal", "Black Beans", "Green Gram", "Toor Dal", "Urad Dal", "Masoor Dal", "Pigeon Peas", "Horse Gram", "Chana Dal", "Moth Beans", "Lima Beans", "Soybeans", "Mung Beans", "Fava Beans", "Yellow Split Peas"],
+                    "Grains": ["Wheat", "Barley", "Millets", "Rice", "Oats", "Quinoa", "Amaranth", "Buckwheat", "Rye", "Sorghum", "Maize", "Cornmeal", "Spelt", "Teff", "Fonio"],
+                    "Oils": {
+                        "Sunflower Oil": ["SVS Brand", "Fortune Brand", "Pure & Sure Brand", "Dhara Brand", "Sunpure Brand"],
+                        "Olive Oil": ["Colavita Brand", "Bertolli Brand", "Figaro Brand"],
+                        "Mustard Oil": ["Kachi Ghani Brand", "Emami Brand", "Dabur Brand"]
+                    },
+                    "Daal": {
+                        "CHHADVA Urad Daal": ["CHHADVA Urad daal", "CHHADVA Urad Whole Black","CHHADVA Urad daal split", "CHHADVA Black Urad daal ", "CHHADVA White Urad daal whole" ],
+                        "CHHADVA Moong Daal": ["CHHADVA Moong daal", "CHHADVA Moong whole green","CHHADVA Moong daal split", "CHHADVA Moong daal yellow ", "CHHADVA Moong daal yellow (CAL)"],
+                        "CHHADVA Toor Daal": ["CHHADVA Toor daal", "CHHADVA OIl Toor daal", "CHHADVA unpolished Toor daal" ],
+                        "CHHADVA Chana Daal": ["CHHADVA Chana daal"],
+                        "CHHADVA Matki Daal": ["CHHADVA Matki daal"],
+                        "CHHADVA Masoor Daal": ["CHHADVA Masoor daal", "CHHADVA Orange Masoor daal ", "CHHADVA Masoor daal (CAL)"],
+                    },
+                    "Pulses": {
+                        "CHHADVA Val": ["CHHADVA Val Papdi", "CHHADVA Val Daal", "CHHADVA Val ", "CHHADVA Kadva Val" ],
+                        "CHHADVA Rajma": ["CHHADVA Pink Rajma", "CHHADVA Dark Red Rajma", "CHHADVA Black Rajma"],
+                        "CHHADVA Vatana": ["CHHADVA Green Vatana", "CHHADVA Black Vatana", "CHHADVA White Vatana" ],
+                        "CHHADVA Chana": ["CHHADVA Chana Barik", "CHHADVA Chana Mosambi", "CHHADVA Chana Kabuli"],
+                        "CHHADVA Chawali": ["CHHADVA Chawli Red", "CHHADVA Chawali Big"],
+                        "CHHADVA Breakfast & Poha": ["CHHADVA Singdana", "CHHADVA Patla Poha ", "CHHADVA Jada Poha", "CHHADVA Singdana"],
+                    },
+                    "Rice": {
+                        "CHHADVA Rice": ["CHHADVA Indrani Rice", "CHHADVA Chella Rice","CHHADVA Raw Red Matta Rice","CHHADVA JADA Diamond Rice","CHHADVA Broken Rice","CHHADVA Red Matta Rice","CHHADVA New Rice","CHHADVA Sughadi Kolam Rice","CHHADVA Govindbhog Rice"],
+                        "Basmati Rice": ["India Gate Basmati", "Tilda Basmati", "Daawat Basmati", "Royal Basmati"],
+                        "Zeerachamba Rice": ["CHHADVA Zeerachamba Rice", "Rettaikili Zeeragachamba Rice"],
+                        "CHHADVA IDLI SPL Rice" : ["CHHADVA IDLI SPL Rice","CHHADVA Rice Jada Masoori", "CHHADVA Tamilnadu Ponni Rice" ],
+                        "CHHADVA Kolam Rice": ["CHHADVA Steam Kolam Rice","CHHADVA Jeera Kolam Rice","CHHADVA Boiled Kolam Rice","CHHADVA Surati Kolam Rice","CHHADVA Wada Kolam Rice"],
+                    },
+                    "Millets": {
+                        "CHHADVA Foxtail Millet":[],
+                
+                        "CHHADVA Little Millet": ["India Gate Basmati", "Tilda Basmati", "Daawat Basmati", "Royal Basmati"],
+                        "CHHADVA Barnyard Rice": [],
+                        "CHHADVA Kodo Millet" : [],
+                        "CHHADVA Kolam Rice": [],
+                    },
+                    "Jaggery & Sugars": ["CHHADVA Jaggery", "CHHADVA Brown Sugar", "CHHADVA White Sugar"],
+                    "Masala": {
+                        "Aachi Masala": ["Coriander Masala", "Chili Masala", "Chicken Masala", "Mutton Masala", "Turmeric Powder"],
+                        "Everest Masala": ["Garam Masala", "Rasam Powder", "Lemon Powder"],
+                        "Badshah Masala": ["Chili Powder", "Pav Bhaji Masala", "Sambar Masala"],
+                        "Sakthi Masala": ["Methi Powder", "Curry Powder"]
+                    },
+                    "Noodles": ["Instant Noodles", "Rice Noodles", "Hakka Noodles", "Maggi", "Top Ramen", "Ching's Secret", "Yippee", "Knorr Noodles", "Indomie Noodles"],
+                    "Breakfast Items": ["Kellogg's Cornflakes", "Muesli", "Chocos", "Oats", "Quaker Oats", "CHHADVA Oats", "Poha", "Idly Batter", "Dosa Batter", "Soji Batter"]
+                };
+        
+                let displayItems = items[category] || {};
+                let content = '';
+                
+                if (typeof displayItems === 'object') {
+                    content += `<h4>Select a product:</h4><ul>`;
+                    for (let subCategory in displayItems) {
+                        content += `<li><a href="javascript:void(0)" onclick="showBrands('${subCategory}', '${category}')">${subCategory}</a></li>`;
+                    }
+                    content += `</ul>`;
+                } else {
+                    content = displayItems.map(item => `<li><i class='fas fa-check-circle'></i> ${item}</li>`).join("");
+                }
+        
+                document.getElementById("itemsList").innerHTML = content;
+            }
+        
+            function showBrands(subCategory, category) {
+                let items = {
+                    "Oils": {
+                        "Sunflower Oil": ["SVS Brand", "Fortune Brand", "Pure & Sure Brand", "Dhara Brand", "Sunpure Brand"],
+                        "Olive Oil": ["Colavita Brand", "Bertolli Brand", "Figaro Brand"],
+                        "Mustard Oil": ["Kachi Ghani Brand", "Emami Brand", "Dabur Brand"]
+                    },
+                    "Rice": {
+                        "Basmati Rice": ["India Gate", "Tilda", "Daawat", "Royal"],
+                        "Zeerachamba": ["Brand A", "Brand B", "Brand C"],
+                        "Boiled Rice": ["Brand X", "Brand Y"],
+                        "New Rice": ["Brand Z"]
+                    },
+                    "Masala": {
+                        "Aachi Masala": ["Coriander Masala", "Chili Masala", "Chicken Masala", "Mutton Masala", "Turmeric Powder"],
+                        "Everest Masala": ["Garam Masala", "Rasam Powder", "Lemon Powder"],
+                        "Badshah Masala": ["Chili Powder", "Pav Bhaji Masala", "Sambar Masala"],
+                        "Sakthi Masala": ["Methi Powder", "Curry Powder"]
+                    },
+                    "Foodspreads": {
+                        "JAM": ["Mapro Jam", "Kissan Jam", "Veeba Fruit Jam", "Veeba Mixed Jam"],
+                        "Bluebird": ["COCOA", "Gelatine", "Baking powder","Bluebird Cornflour","Bluebird Veg Jelly","Bluebird Raspberry", "Citric acid", "Active dry yeast", "Instant pudding", "China grass", "Instant dry yeast", "Kulfi mix", "Whipped topping", "Drinking chocolate", "Test-mi-nov"],
+                        "Food spread": ["Nutella", "Sundrop peanut butter", "Dr. Oetker peanut butter",],
+                        "Ketchup": ["Heinz Ketchup", "Kissan Ketchup", "Maggi Ketchup", "Maggi Pichkoo", "Maggi Hot&Sweet"],
+                    },
+                    "Daal": {
+                        "CHHADVA Urad Daal": ["CHHADVA Urad daal", "CHHADVA Urad Whole Black","CHHADVA Urad daal split", "CHHADVA Black Urad daal ", "CHHADVA White Urad daal whole" ],
+                        "CHHADVA Moong Daal": ["CHHADVA Moong daal", "CHHADVA Moong whole green","CHHADVA Moong daal split", "CHHADVA Moong daal yellow ", "CHHADVA Moong daal yellow (CAL)"],
+                        "CHHADVA Toor Daal": ["CHHADVA Toor daal", "CHHADVA OIl Toor daal", "CHHADVA unpolished Toor daal" ],
+                        "CHHADVA Chana Daal": ["CHHADVA Chana daal"],
+                        "CHHADVA Matki Daal": ["CHHADVA Matki daal"],
+                        "CHHADVA Masoor Daal": ["CHHADVA Masoor daal", "CHHADVA Orange Masoor daal ", "CHHADVA Masoor daal (CAL)"],
+                    },
+                    "Pulses": {
+                        "CHHADVA Val": ["CHHADVA Val Papdi", "CHHADVA Val Daal", "CHHADVA Val ", "CHHADVA Kadva Val" ],
+                        "CHHADVA Rajma": ["CHHADVA Pink Rajma", "CHHADVA Dark Red Rajma", "CHHADVA Black Rajma"],
+                        "CHHADVA Vatana": ["CHHADVA Green Vatana", "CHHADVA Black Vatana", "CHHADVA White Vatana" ],
+                        "CHHADVA Chana": ["CHHADVA Chana Barik", "CHHADVA Chana Mosambi", "CHHADVA Chana Kabuli"],
+                        "CHHADVA Chawali": ["CHHADVA Chawli Red", "CHHADVA Chawali Big"],
+                        "CHHADVA Breakfast & Poha": ["CHHADVA Singdana", "CHHADVA Patla Poha ", "CHHADVA Jada Poha", "CHHADVA Singdana"],
+                    },
+                    "Millets": {
+                        "CHHADVA Foxtail Millet":[],
+                
+                        "CHHADVA Little Millet": ["India Gate Basmati", "Tilda Basmati", "Daawat Basmati", "Royal Basmati"],
+                        "CHHADVA Barnyard Rice": [],
+                        "CHHADVA Kodo Millet" : [],
+                        "CHHADVA Kolam Rice": [],
+                    },
+                };
+        
+                let brands = items[category][subCategory] || [];
+                let content = `<h4>Select a brand:</h4><ul>`;
+                brands.forEach(brand => {
+                    content += `<li><i class='fas fa-check-circle'></i> ${brand}</li>`;
+                });
+                content += `</ul>`;
+        
+                document.getElementById("itemsList").innerHTML = content;
+            }
+        </script>
+        
+        <body>
+            <div class="container">
+                <h2>Welcome to Chhadva Supermart</h2>
+                <p>Select a category to view recommended items.</p>
+                <select id="category" onchange="showItems(this.value)">
+                    <option value="">--Choose a Category--</option>
+                    <option value="Curry Items">Curry Items</option>
+                    <option value="Foodspreads">Food Spreads</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Snacks">Snacks</option>
+                    <option value="Dry Fruits">Dry Fruits</option>
+                    <option value="Daal">CHHADVA Daal</option>
+                    <option value="Pulses">CHHADVA Pulses</option>
+                    <option value="Millets">CHHADVA Millets</option>
+                    <option value="Grains">Grains</option>
+                    <option value="Oils">Oils</option>
+                    <option value="Rice">Rice</option>
+                    <option value="Jaggery & Sugars">Jaggery & Sugars</option>
+                    <option value="Masala">Masala</option>
+                    <option value="Noodles">Noodles</option>
+                    <option value="Breakfast Items">Breakfast Items</option>
+                </select>
+                <h3>Recommended Items:</h3>
+                <ul id="itemsList"></ul>
+            </div>
+            <div class="footer">&copy; 2025 Chhadva Supermart. All rights reserved.</div>
+        </body>
+        
+</html>

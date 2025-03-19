@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhadva Supermart - Smart Shopping Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+        select, button {
+            padding: 12px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background: #ff6f61;
+            color: white;
+            cursor: pointer;
+        }
+        select {
+            background: white;
+            color: black;
+            border: 2px solid #ff6f61;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #ffe5d9;
+            margin: 5px 0;
+            padding: 12px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .category-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .navbar {
+            background: #ff6f61;
+            padding: 15px;
+            color: white;
+            font-size: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 15px;
+            background: #333;
+            color: white;
+        }
+    </style>
+    <script>
+        function showItems(category) {
+            let items = {
+                "Curry Items": ["Paneer", "Tomatoes", "Onions", "Spices", "Cream"],
+                "Desserts": ["Sugar", "Milk", "Cardamom", "Dry Fruits", "Flour"],
+                "Snacks": ["Namkeen", "Biscuits", "Chips", "Samosa", "Tea"],
+                "Dry Fruits": ["Almonds", "Cashews", "Raisins", "Pistachios"],
+                "Cereals": ["Cornflakes", "Oats", "Muesli", "Choco Flakes"],
+                "Pulses": ["Lentils", "Chickpeas", "Kidney Beans", "Moong Dal"],
+                "Grains": ["Wheat", "Barley", "Millets"],
+                "Oils": ["Olive Oil", "Coconut Oil", "Mustard Oil"],
+                "Rice": ["Basmati Rice", "Brown Rice", "Jasmine Rice"],
+                "Jaggery & Sugars": ["Jaggery", "Brown Sugar", "White Sugar"],
+                "Masala": ["Turmeric", "Chili Powder", "Garam Masala", "Cumin"],
+                "Noodles": ["Instant Noodles", "Rice Noodles", "Hakka Noodles"],
+                "Breakfast Items": ["Bread", "Butter", "Eggs", "Jam", "Honey"]
+            };
+            let displayItems = items[category] || [];
+            document.getElementById("itemsList").innerHTML = displayItems.map(item => `<li><i class='fas fa-check-circle'></i> ${item}</li>`).join("");
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">Chhadva Supermart - Your Smart Shopping Guide</div>
+    <div class="container">
+        <h2>Welcome to Chhadva Supermart</h2>
+        <p>Select a category to view recommended items.</p>
+        <select id="category" onchange="showItems(this.value)">
+            <option value="">--Choose a Category--</option>
+            <option value="Curry Items">Curry Items</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Dry Fruits">Dry Fruits</option>
+            <option value="Cereals">Cereals</option>
+            <option value="Pulses">Pulses</option>
+            <option value="Grains">Grains</option>
+            <option value="Oils">Oils</option>
+            <option value="Rice">Rice</option>
+            <option value="Jaggery & Sugars">Jaggery & Sugars</option>
+            <option value="Masala">Masala</option>
+            <option value="Noodles">Noodles</option>
+            <option value="Breakfast Items">Breakfast Items</option>
+        </select>
+        <h3>Recommended Items:</h3>
+        <ul id="itemsList"></ul>
+    </div>
+    <div class="footer">&copy; 2025 Chhadva Supermart. All rights reserved.</div>
+</body>
+</html>
