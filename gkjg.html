@@ -1,0 +1,79 @@
+<body>
+    <div class="container">
+        <h2>Chhadva Supermart Product Guide</h2>
+        <input type="text" class="search-bar" id="searchBar" placeholder="Search for a product..." onkeyup="searchProducts()">
+        
+        <div class="category" onclick="toggleVisibility('spicesContainer')">🌶️ Spices</div>
+        <div id="spicesContainer" class="subcategory-container">
+            <div class="subcategory" onclick="toggleVisibility('keyaProducts')">Keya</div>
+            <ul id="keyaProducts" class="product-list">
+                <li onclick="showPopup('Keya Products', 'Available varieties include turmeric, red chili, and more.')">View Products</li>
+            </ul>
+            <a href="keya.html">View all Keya products</a>
+            
+            <div class="subcategory" onclick="toggleVisibility('suhanaProducts')">Suhana</div>
+            <ul id="suhanaProducts" class="product-list">
+                <li onclick="showPopup('Suhana Products', 'A range of flavorful masalas and seasonings.')">View Products</li>
+            </ul>
+            <a href="suhana.html">View all Suhana products</a>
+            
+            <div class="subcategory" onclick="toggleVisibility('tushrajProducts')">Tushraj</div>
+            <ul id="tushrajProducts" class="product-list">
+                <li onclick="showPopup('Tushraj Products', 'Spices and seasonings for every dish.')">View Products</li>
+            </ul>
+            <a href="tushraj.html">View all Tushraj products</a>
+            
+            <div class="subcategory" onclick="toggleVisibility('veebaProducts')">Veeba</div>
+            <ul id="veebaProducts" class="product-list">
+                <li onclick="showPopup('Veeba Products', 'Sauces, dressings, and more.')">View Products</li>
+            </ul>
+            <a href="veeba.html">View all Veeba products</a>
+            
+            <div class="subcategory" onclick="toggleVisibility('droetkersProducts')">Dr. Oetker's</div>
+            <ul id="droetkersProducts" class="product-list">
+                <li onclick="showPopup('Dr. Oetker's Products', 'Baking essentials and condiments.')">View Products</li>
+            </ul>
+            <a href="droetkers.html">View all Dr. Oetker's products</a>
+            
+            <div class="subcategory" onclick="toggleVisibility('snapinProducts')">Snapin</div>
+            <ul id="snapinProducts" class="product-list">
+                <li onclick="showPopup('Snapin Products', 'Seasonings and specialty spices.')">View Products</li>
+            </ul>
+            <a href="snapin.html">View all Snapin products</a>
+        </div>
+    </div>
+    
+    <div id="popup" class="popup">
+        <div class="close" onclick="closePopup()">&times;</div>
+        <p id="popupTitle" style="font-weight: bold;"></p>
+        <p id="popupContent"></p>
+    </div>
+    
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            element.style.display = (element.style.display === "block") ? "none" : "block";
+        }
+        
+        function showPopup(product, details) {
+            document.getElementById("popupTitle").innerText = product;
+            document.getElementById("popupContent").innerText = details;
+            document.getElementById("popup").style.display = "block";
+        }
+        
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+        
+        function searchProducts() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let items = document.querySelectorAll(".product-list li");
+            items.forEach(item => {
+                if (item.innerText.toLowerCase().includes(input)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    </script>
